@@ -12,19 +12,22 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Aplikasi Hello World"),
         ),
-        body: Center(
-            child: Container(
-                color: Colors.lightBlue,
-                width: 150,
-                height: 50,
-                child: Text(
-                  "Saya Sedang Melatih Kemampuan Flutter saya",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20),
-                ))),
+        body:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text("text 1"),
+            Text("text 2"),
+            Text("text 3"),
+            Row(
+              children: <Widget>[
+                Text("text 4"),
+                Text("text 5"),
+                Text("text 6")
+              ],
+            )
+          ],
+        )
       ),
     );
   }
