@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
             child: Container(
               // color: Colors.blue,
               margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+              decoration: BoxDecoration( 
+                borderRadius: BorderRadius.circular(20), // memberikan border
                   gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
