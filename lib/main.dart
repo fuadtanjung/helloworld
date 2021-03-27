@@ -9,26 +9,30 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Aplikasi Hello World"),
-        ),
-        body:Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text("text 1"),
-            Text("text 2"),
-            Text("text 3"),
-            Row(
-              children: <Widget>[
-                Text("text 4"),
-                Text("text 5"),
-                Text("text 6")
-              ],
-            )
-          ],
-        )
-      ),
+          appBar: AppBar(
+            title: Text("Latihan Container Widget"),
+          ),
+          body: Container(
+            color: Colors.red, // untuk mengganti warna body
+            // margin: EdgeInsets.all(10), //untuk mengatur jarak di luar dengan keseluruhan
+            margin: EdgeInsets.fromLTRB(10, 15, 20,
+                25), //untuk mengatur jarak di luar LTRB(left,top,right,bottom)
+            // padding: EdgeInsets.all(
+            //     10), untuk mengatur jarak di dalam dengan keseluruhan
+            padding: EdgeInsets.only(
+                top: 10,
+                bottom: 10), //untuk mengatur jarak di dalam dengan di tentukan
+            child: Container(
+              // color: Colors.blue,
+              margin: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: <Color>[Colors.amber, Colors.blue])),
+            ),
+          )),
     );
   }
 }
