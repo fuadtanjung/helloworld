@@ -4,35 +4,45 @@ void main() {
   runApp(new MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int number = 0; //deklarasikan number yang digunakan d dalam text
+
+  void tekanTombol() {
+    setState(() {
+      number = number + 1;
+    });
+  } // logika penambahan bilangan
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: Text("Latihan Container Widget"),
+        appBar: AppBar(
+          title: Text("Stateful Widget Demo"),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment
+                .center, // membuat tombol dan text bilangan di tengah layar
+            children: <Widget>[
+              Text(
+                number.toString(),
+                style: TextStyle(fontSize: 10 + number.toDouble()),
+              ), //ubah number ke string dan karna style fontsize double d ubah ke double
+              RaisedButton(
+                child: Text("Tambah Bilangan"), // text dalam tombol
+                onPressed:
+                    tekanTombol, // memanggil method dari void tekanTombol
+              )
+            ],
           ),
-          body: Container(
-            color: Colors.red, // untuk mengganti warna body
-            // margin: EdgeInsets.all(10), //untuk mengatur jarak di luar dengan keseluruhan
-            margin: EdgeInsets.fromLTRB(10, 15, 20,
-                25), //untuk mengatur jarak di luar LTRB(left,top,right,bottom)
-            // padding: EdgeInsets.all(
-            //     10), untuk mengatur jarak di dalam dengan keseluruhan
-            padding: EdgeInsets.only(
-                top: 10,
-                bottom: 10), //untuk mengatur jarak di dalam dengan di tentukan
-            child: Container(
-              // color: Colors.blue,
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration( 
-                borderRadius: BorderRadius.circular(20), // memberikan border
-                  gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: <Color>[Colors.amber, Colors.blue])),
-            ),
-          )),
+        ),
+      ),
     );
   }
 }
